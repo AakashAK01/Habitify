@@ -56,52 +56,70 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 8,
                 ),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "My Journal",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Icon(Icons.create),
-                    Row(
+                    Container(
+                        child: Row(
                       children: [
-                        IconButton(
-                          icon: Icon(Icons.school),
-                          onPressed: () {},
+                        Text(
+                          "My Journal",
+                          style: TextStyle(
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.leaderboard),
                           onPressed: () {},
+                          icon: Icon(Icons.create_rounded),
                         ),
                       ],
-                    ),
+                    )),
+                    Container(
+                      child: Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              Icons.school,
+                            ),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.leaderboard,
+                            ),
+                            onPressed: () {},
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(
                   height: 15,
                 ),
                 Container(
+                  padding: EdgeInsets.all(5),
                   height: 35,
-                  width: 100,
+                  width: 133,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.indigo,
+                    color: Colors.blue.shade900,
                   ),
-                  child: Center(
-                    child: const Text(
-                      "  All Habits  ",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                  child: Row(
+                    children: [
+                      Icon(Icons.inbox),
+                      Center(
+                        child: const Text(
+                          "  All Habits  ",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
                 /*TextField(
@@ -117,6 +135,98 @@ class _MyHomePageState extends State<MyHomePage> {
                 // set your search bar setting
               ],
             ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        height: 70,
+        alignment: Alignment.center,
+        child: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.view_agenda,
+                    ),
+                    onPressed: () {},
+                  ),
+                  Text(
+                    "Journal",
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.pie_chart_outline,
+                    ),
+                    onPressed: null,
+                  ),
+                  Text(
+                    "Progress",
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.add_box,
+                    ),
+                    onPressed: null,
+                  ),
+                  Text(
+                    "Challenges",
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.star_border,
+                    ),
+                    onPressed: null,
+                  ),
+                  Text(
+                    "Upgrade",
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.settings_outlined,
+                    ),
+                    onPressed: null,
+                  ),
+                  Text(
+                    "Settings",
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

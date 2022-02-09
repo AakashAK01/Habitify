@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_habitify/screens/new_area.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: Brightness.light,
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -29,9 +31,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _hasbeenpressed = false;
+  void _press() {
+    setState(() {
+      _hasbeenpressed = !_hasbeenpressed;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue.shade700,
+        child: Icon(
+          Icons.add,
+          size: 35,
+        ),
+        onPressed: () {},
+      ),
       appBar: AppBar(
         toolbarHeight: 150.10,
         flexibleSpace: SafeArea(
@@ -78,17 +97,31 @@ class _MyHomePageState extends State<MyHomePage> {
                     Container(
                       child: Row(
                         children: [
-                          IconButton(
-                            icon: Icon(
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Icon(
                               Icons.school,
+                              color: Colors.blue.shade700,
                             ),
-                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(10),
+                              primary: Colors.blue.shade100,
+                              onPrimary: Colors.black,
+                            ),
                           ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.leaderboard,
-                            ),
+                          ElevatedButton(
                             onPressed: () {},
+                            child: Icon(
+                              Icons.leaderboard,
+                              color: Colors.blue.shade700,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(10),
+                              primary: Colors.blue.shade100,
+                              onPrimary: Colors.black,
+                            ),
                           )
                         ],
                       ),
@@ -99,40 +132,65 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 15,
                 ),
                 Container(
-                  padding: EdgeInsets.all(5),
-                  height: 35,
-                  width: 133,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.blue.shade900,
-                  ),
-                  child: Row(
+                  height: 40,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
                     children: [
-                      Icon(Icons.inbox),
-                      Center(
-                        child: const Text(
-                          "  All Habits  ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _press();
+                          });
+                        },
+                        child: CustomCards(
+                          hasbeenpressed: _hasbeenpressed,
+                          header: "All Habits",
+                          icons: Icons.inbox,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _press();
+                          });
+                        },
+                        child: CustomCards(
+                          hasbeenpressed: _hasbeenpressed,
+                          header: "Morning",
+                          icons: Icons.wb_sunny,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const NewArea();
+                                },
+                              ),
+                            );
+                          });
+                        },
+                        child: CustomCards(
+                          hasbeenpressed: _hasbeenpressed,
+                          header: "New Area",
+                          icons: Icons.add,
                         ),
                       ),
                     ],
                   ),
                 ),
-                /*TextField(
-                  "All Habits",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),*/
-
-                // set an icon or image
-                // set your search bar setting
               ],
             ),
           ),
@@ -229,6 +287,54 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CustomCards extends StatelessWidget {
+  const CustomCards({
+    Key? key,
+    required bool hasbeenpressed,
+    required this.header,
+    required this.icons,
+  })  : _hasbeenpressed = hasbeenpressed,
+        super(key: key);
+
+  final bool _hasbeenpressed;
+  final String header;
+  final IconData icons;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+
+        //color: _hasbeenpressed ? Colors.blue.shade700 : Colors.white60,
+      ),
+      child: Container(
+        width: 120,
+        height: 150,
+
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: _hasbeenpressed ? Colors.blue.shade700 : Colors.white60,
+        ),
+        child: Row(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Icon(icons),
+            Text(
+              header,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+              ),
+            ),
+          ],
+        ),
+        //)
       ),
     );
   }

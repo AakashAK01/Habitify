@@ -128,6 +128,18 @@ class _NewAreaState extends State<NewArea> {
               child: Container(
                 height: 45,
                 color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    colorBox(clr: Colors.grey),
+                    colorBox(clr: Colors.red),
+                    colorBox(clr: Colors.orangeAccent),
+                    colorBox(clr: Colors.blue),
+                    colorBox(clr: Colors.black26),
+                    colorBox(clr: Colors.deepPurple),
+                    colorBox(clr: Colors.green),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -147,6 +159,35 @@ class _NewAreaState extends State<NewArea> {
               color: Colors.white,
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class colorBox extends StatefulWidget {
+  Color? clr;
+  colorBox({Key? key, required this.clr}) : super(key: key);
+
+  @override
+  _colorBoxState createState() => _colorBoxState();
+}
+
+class _colorBoxState extends State<colorBox> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: GestureDetector(
+        child: Container(
+          padding: EdgeInsets.all(10),
+          margin: EdgeInsets.all(10),
+          width: 25,
+          height: 25,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            border: Border.all(),
+            color: widget.clr,
+          ),
         ),
       ),
     );

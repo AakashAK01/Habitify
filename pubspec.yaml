@@ -29,7 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_speed_dial:
+  intl:
+  floating_action_bubble:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

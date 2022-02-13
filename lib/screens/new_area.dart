@@ -131,13 +131,13 @@ class _NewAreaState extends State<NewArea> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    colorBox(clr: Colors.grey),
-                    colorBox(clr: Colors.red),
-                    colorBox(clr: Colors.orangeAccent),
-                    colorBox(clr: Colors.blue),
-                    colorBox(clr: Colors.black26),
-                    colorBox(clr: Colors.deepPurple),
-                    colorBox(clr: Colors.green),
+                    colorBox(colour: Colors.grey),
+                    colorBox(colour: Colors.red),
+                    colorBox(colour: Colors.orangeAccent),
+                    colorBox(colour: Colors.blue),
+                    colorBox(colour: Colors.black26),
+                    colorBox(colour: Colors.deepPurple),
+                    colorBox(colour: Colors.green),
                   ],
                 ),
               ),
@@ -166,30 +166,40 @@ class _NewAreaState extends State<NewArea> {
 }
 
 class colorBox extends StatefulWidget {
-  Color? clr;
-  colorBox({Key? key, required this.clr}) : super(key: key);
+  Color? colour;
+  colorBox({Key? key, required this.colour}) : super(key: key);
 
   @override
   _colorBoxState createState() => _colorBoxState();
 }
 
 class _colorBoxState extends State<colorBox> {
+  bool visible = false;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GestureDetector(
-        child: Container(
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.all(10),
-          width: 25,
-          height: 25,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            border: Border.all(),
-            color: widget.clr,
+    return GestureDetector(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.all(10),
+        width: 25,
+        height: 25,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(),
+          color: widget.colour,
+        ),
+        child: Visibility(
+          visible: visible,
+          child: Icon(
+            Icons.check,
+            color: Colors.black,
           ),
         ),
       ),
+      onTap: () {
+        setState(() {});
+        visible = visible == false ? true : false;
+      },
     );
   }
 }

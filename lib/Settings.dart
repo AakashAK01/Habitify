@@ -66,12 +66,12 @@ class _SettingsPageState extends State<SettingsPage> {
               text: "      Manage Area",
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.archive,
               rightIcon: Icons.arrow_forward_ios,
               text: "      App Usage",
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.insert_drive_file,
               rightIcon: Icons.arrow_forward_ios,
               text: "      Export Data",
             ),
@@ -150,7 +150,7 @@ class _SettingsPageState extends State<SettingsPage> {
               text: "      Sync with Calendar",
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.auto_awesome_motion,
               rightIcon: Icons.arrow_forward_ios,
               text: "      API Credentials",
             ),
@@ -168,12 +168,12 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.thumb_up,
               rightIcon: Icons.arrow_forward_ios,
               text: "      Vote on Features",
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.chat_bubble,
               rightIcon: Icons.arrow_forward_ios,
               text: "      Chat with Our Support Team",
             ),
@@ -183,7 +183,7 @@ class _SettingsPageState extends State<SettingsPage> {
               text: "      Privacy Policy",
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.gavel,
               rightIcon: Icons.arrow_forward_ios,
               text: "      Term of Use",
             ),
@@ -201,17 +201,17 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.g_translate,
               rightIcon: Icons.arrow_forward_ios,
               text: "      Translate Habitify",
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.supervised_user_circle,
               rightIcon: Icons.arrow_forward_ios,
               text: "      User Community",
             ),
             SettingsCards(
-              leftIcon: Icons.account_circle,
+              leftIcon: Icons.circle_notifications,
               rightIcon: Icons.arrow_forward_ios,
               text: "      Follow us on Twitter",
             ),
